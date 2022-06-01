@@ -2,8 +2,8 @@
 #Write a Bash script that: // Creates the file /var/run/myscript.pid containing its PID // Displays To infinity and beyond indefinitely // Displays I hate the kill command when receiving a SIGTERM signal // Displays Y U no love me?! when receiving a SIGINT signal // Deletes the file /var/run/myscript.pid and terminates itself when receiving a SIGQUIT or SIGTERM signal
 echo $$ > /var/run/mysript.pid
 trap 'echo "I hate the kill command"; rm -rf /var/run/myscript.pid; exit' SIGTERM
-trap 'echo "Y U no love me?!"' SIGSTOP
-trap 'rm -rf /var/run/myscript.pid; exit' SIGSTOP
+trap 'echo "Y U no love me?!"' SIGKILL
+trap 'rm -rf /var/run/myscript.pid; exit' SIGKILL
 while :
 do
     echo "To infinity and beyond"
